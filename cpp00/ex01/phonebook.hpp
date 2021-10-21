@@ -3,13 +3,18 @@
 #define _PHONEBOOK_HPP_
 #include "contact.hpp"
 #include <string>
-#include <iostream>
 #include <iomanip>
+#include <iostream>
 
-class PhoneBoook
+class PhoneBook
 {
 	private:
-			Contact contacts[8];
+			Contact	contacts[8];
+
+	public:
+			void	menu(void);
+			void	add(void);
+
 };
 
 #endif

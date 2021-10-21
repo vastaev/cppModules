@@ -1,6 +1,11 @@
-#include "phonebook.h"
+#include "phonebook.hpp"
 
-int	menu()
+void	PhoneBook::add(void)
+{
+	
+}
+
+void	PhoneBook::menu(void)
 {
 	std::string	line;
 
@@ -13,5 +18,5 @@ int	menu()
 		else if (line == "ADD")
 			add();
 	}
-	return (0);
+	return ;
 }

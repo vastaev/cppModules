@@ -3,5 +3,8 @@
 
 int	main(void)
 {
+	PhoneBook	sheesh;
 
+	sheesh.menu();
+	return(0);
 }
