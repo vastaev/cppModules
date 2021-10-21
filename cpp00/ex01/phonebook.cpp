@@ -1,8 +1,16 @@
 #include "phonebook.hpp"
 
+PhoneBook::PhoneBook(void)
+{
+	this->currentContactsNumber = 0;
+}
+
+PhoneBook::~PhoneBook(void){}
+
 void	PhoneBook::add(void)
 {
-	
+	std::cout << "Adding new contact:" << std::endl;
+	this->contacts[this->currentContactsNumber].add(this->currentContactsNumber);
 }
 
 void	PhoneBook::menu(void)

@@ -9,9 +9,13 @@
 class PhoneBook
 {
 	private:
+			int		currentContactsNumber;
 			Contact	contacts[8];
 
 	public:
+			PhoneBook(void);
+			~PhoneBook(void);
+
 			void	menu(void);
 			void	add(void);
 
