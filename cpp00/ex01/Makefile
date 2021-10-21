@@ -6,13 +6,15 @@
 #    By: cjoanne <cjoanne@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/10 13:59:25 by cjoanne           #+#    #+#              #
-#    Updated: 2021/10/21 12:19:58 by cjoanne          ###   ########.fr        #
+#    Updated: 2021/10/21 21:59:12 by cjoanne          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS			= phonebook.cpp
+SRCS			= phonebook.cpp contact.cpp main.cpp
 
 OBJS			= $(SRCS:.cpp=.o)
+
+HEADERS			= contact.hpp phonebook.hpp
 
 CLANG			= clang++
 RM				= rm -f
@@ -22,7 +24,7 @@ NAME			= iPhonebook
 
 all:			$(NAME)
 
-$(NAME):		$(OBJS)
+$(NAME):		$(OBJS) $(HEADERS)
 				$(CLANG) $(FLAGS) -o $(NAME) $(OBJS)
 
 clean:
@@ -32,10 +34,5 @@ fclean:			clean
 				$(RM) $(NAME)
 
 re:				fclean $(NAME)
-
-test:			$(NAME)
-				./megaphone "shhhhh... I think the students are asleep..."
-				./megaphone Damnit " ! " "Sorry students, I thought this thing was off."
-				./megaphone
 
 .PHONY:			all clean fclean re test
