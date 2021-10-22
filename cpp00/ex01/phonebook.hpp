@@ -9,8 +9,9 @@
 class PhoneBook
 {
 	private:
+			int		contacts_Counter_;
 			int		currentContactsNumber_;
-			Contact	contacts[8];
+			Contact	contacts_[8];
 
 	public:
 			PhoneBook(void);
@@ -19,6 +20,7 @@ class PhoneBook
 			void	menu(void);
 			void	add(void);
 			void	display(void);
+			int		indexValiddation(std::string str);
 
 };
 

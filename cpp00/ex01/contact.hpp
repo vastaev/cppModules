@@ -17,6 +17,8 @@ class Contact
 		public:
 				void	add(int index);
 				void	displayContact(void);
+				void	shortDisplayContact(void);
+				void	shortenedDisplay(std::string str);
 };
 
 #endif

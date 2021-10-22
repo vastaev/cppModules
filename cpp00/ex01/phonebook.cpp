@@ -3,6 +3,7 @@
 PhoneBook::PhoneBook(void)
 {
 	this->currentContactsNumber_ = 0;
+	this->contacts_Counter_ = 0;
 }
 
 PhoneBook::~PhoneBook(void){}
@@ -10,13 +11,54 @@ PhoneBook::~PhoneBook(void){}
 void	PhoneBook::add(void)
 {
 	std::cout << "Adding new contact:" << std::endl;
-	this->contacts[this->currentContactsNumber_].add(this->currentContactsNumber_);
+	this->contacts_[this->contacts_Counter_].add(this->contacts_Counter_ + 1);
 	this->currentContactsNumber_++;
+	if (this->currentContactsNumber_ > 8)
+		this->currentContactsNumber_ = 8;
+	this->contacts_Counter_++;
+	if (contacts_Counter_ == 8)
+		this->contacts_Counter_ = 0;
+}
+
+int	PhoneBook::indexValiddation(std::string str)
+{
+	int ind = 0;
+
+	if (str.size() != 1)
+		return (-1);
+	ind = str[0] - 48;
+	if (ind > 0 && ind < 9)
+		return (ind);
+	return (-1);
 }
 
 void	PhoneBook::display(void)
 {
-	this->contacts[this->currentContactsNumber_].displayContact();
+	std::string	line;
+	int			ind;
+
+	std::cout << "Search mode:" << std::endl;
+	for (size_t i = 0; i < this->currentContactsNumber_; i++)
+		this->contacts_[i].shortDisplayContact();
+	if (this->currentContactsNumber_ == 0)
+		std::cout << "Empty phonebook!" << std::endl;
+	else
+	{
+		std::cout << "input index(empty line to exit search mode)" << std::endl;
+		while (std::getline(std::cin, line))
+		{
+			if (line == "")
+				break ;
+			ind = indexValiddation(line);
+			if (ind == -1)
+			{
+				std::cout << "invalid index(only 1 - 8 exists)" << std::endl;
+				continue ;
+			}
+			contacts_[ind - 1].displayContact();
+		}
+	}
+	std::cout << "Exited Search mode" << std::endl;
 }
 
 void	PhoneBook::menu(void)
@@ -34,7 +76,7 @@ void	PhoneBook::menu(void)
 			break;
 		else if (line == "ADD")
 			add();
-		else if (line == "DISPLAY")
+		else if (line == "SEARCH")
 			display();
 		else
 			std::cout << "Command not found ヽ(ー_ー)ノ" << std::endl;
