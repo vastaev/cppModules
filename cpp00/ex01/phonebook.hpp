@@ -9,7 +9,7 @@
 class PhoneBook
 {
 	private:
-			int		currentContactsNumber;
+			int		currentContactsNumber_;
 			Contact	contacts[8];
 
 	public:
@@ -18,6 +18,7 @@ class PhoneBook
 
 			void	menu(void);
 			void	add(void);
+			void	display(void);
 
 };
 

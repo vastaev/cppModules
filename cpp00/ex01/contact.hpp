@@ -2,6 +2,7 @@
 #define _CONTACT_HPP_
 #include <string>
 #include <iostream>
+#include <iomanip>
 
 class Contact
 {
@@ -15,6 +16,7 @@ class Contact
 
 		public:
 				void	add(int index);
+				void	displayContact(void);
 };
 
 #endif
