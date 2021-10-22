@@ -21,7 +21,6 @@ class PhoneBook
 			void	add(void);
 			void	display(void);
 			int		indexValiddation(std::string str);
-
 };
 
 #endif
