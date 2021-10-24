@@ -9,7 +9,7 @@
 class PhoneBook
 {
 	private:
-			int		contacts_Counter_;
+			int		contactsCounter_;
 			int		currentContactsNumber_;
 			Contact	contacts_[8];
 

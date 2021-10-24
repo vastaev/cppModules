@@ -3,7 +3,7 @@
 PhoneBook::PhoneBook(void)
 {
 	this->currentContactsNumber_ = 0;
-	this->contacts_Counter_ = 0;
+	this->contactsCounter_ = 0;
 }
 
 PhoneBook::~PhoneBook(void){}
@@ -11,13 +11,13 @@ PhoneBook::~PhoneBook(void){}
 void	PhoneBook::add(void)
 {
 	std::cout << "Adding new contact:" << std::endl;
-	this->contacts_[this->contacts_Counter_].add(this->contacts_Counter_ + 1);
+	this->contacts_[this->contactsCounter_].add(this->contactsCounter_ + 1);
 	this->currentContactsNumber_++;
 	if (this->currentContactsNumber_ > 8)
 		this->currentContactsNumber_ = 8;
-	this->contacts_Counter_++;
-	if (contacts_Counter_ == 8)
-		this->contacts_Counter_ = 0;
+	this->contactsCounter_++;
+	if (contactsCounter_ == 8)
+		this->contactsCounter_ = 0;
 }
 
 int	PhoneBook::indexValiddation(std::string str)
