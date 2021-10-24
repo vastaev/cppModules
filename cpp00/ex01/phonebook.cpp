@@ -13,10 +13,10 @@ void	PhoneBook::add(void)
 	std::cout << "Adding new contact:" << std::endl;
 	this->contacts_[this->contactsCounter_].add(this->contactsCounter_ + 1);
 	this->currentContactsNumber_++;
-	if (this->currentContactsNumber_ > 8)
-		this->currentContactsNumber_ = 8;
+	if (this->currentContactsNumber_ > CONTACTSNUM)
+		this->currentContactsNumber_ = CONTACTSNUM;
 	this->contactsCounter_++;
-	if (contactsCounter_ == 8)
+	if (contactsCounter_ == CONTACTSNUM)
 		this->contactsCounter_ = 0;
 }
 

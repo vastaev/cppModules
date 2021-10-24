@@ -5,13 +5,14 @@
 #include <string>
 #include <iomanip>
 #include <iostream>
+#define CONTACTSNUM 8
 
 class PhoneBook
 {
 	private:
 			int		contactsCounter_;
 			int		currentContactsNumber_;
-			Contact	contacts_[8];
+			Contact	contacts_[CONTACTSNUM];
 
 	public:
 			PhoneBook(void);
