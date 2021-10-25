@@ -6,27 +6,27 @@
 #    By: cjoanne <cjoanne@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/24 06:53:13 by cjoanne           #+#    #+#              #
-#    Updated: 2021/10/24 11:37:21 by cjoanne          ###   ########.fr        #
+#    Updated: 2021/10/25 12:12:40 by cjoanne          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME	=	
+NAME	=	zombie
 
-SRC		=	
-SRC_DIR	=	src/
-SRC		=	$(addprefix $(SRCS_DIR), $(SRCS_LIST))
+SRC_LIST	=	main.cpp newZombie.cpp randomChump.cpp Zombie.cpp
+SRC_DIR		=	src/
+SRC			=	$(addprefix $(SRC_DIR), $(SRC_LIST))
 
-OBJ_LIST	=	$(SRCS_LIST:.c=.o)
+OBJ_LIST	=	$(SRC_LIST:.cpp=.o)
 OBJ_DIR		=	.obj/
-OBJ			=	$(addprefix $(OBJS_DIR), $(OBJS_LIST))
+OBJ			=	$(addprefix $(OBJ_DIR), $(OBJ_LIST))
 
-CC 			=	clang++
+CC			=	clang++
 CFLAGS		=	-Wall -Wextra -Werror
 
 INCLUDES	=	-I $(HEADERS_DIR)
 
 HEADERS_DIR		=	./include/
-HEADERS_LIST	=	
+HEADERS_LIST	=	Zombie.hpp
 HEADERS 		=	$(addprefix $(HEADERS_DIR), $(HEADERS_LIST))
 
 RM	=	rm -rf
@@ -39,20 +39,20 @@ RESET = \033[0m
 
 all : $(NAME)
 
-$(NAME) : $(OBJS_DIR) $(OBJS) $(HEADERS)
-	@$(CC) $(INCLUDES) $(OBJS) -o $(NAME)
+$(NAME) : $(OBJ_DIR) $(OBJ) $(HEADERS)
+	@$(CC) $(INCLUDES) $(OBJ) -o $(NAME)
 	@echo "$(NAME): $(BLUE)object files were created$(RESET)"
 	@echo "$(NAME): $(GREEN)$(NAME) was created$(RESET)"
 
-$(OBJS_DIR)%.o : $(SRCS_DIR)%.c
+$(OBJ_DIR)%.o : $(SRC_DIR)%.cpp
 	@$(CC) $(СFLAGS) $(INCLUDES) -c $< -o $@
 	
-$(OBJS_DIR) :
-	@mkdir -p $(OBJS_DIR)
+$(OBJ_DIR) :
+	@mkdir -p $(OBJ_DIR)
 	@echo "$(NAME): $(BLUE)creating $(NAME)$(RESET)"
 
 clean :
-	@$(RM) $(OBJS_DIR)
+	@$(RM) $(OBJ_DIR)
 	@echo "$(NAME): $(RED)object files were deleted$(RESET)"
 
 fclean : clean
