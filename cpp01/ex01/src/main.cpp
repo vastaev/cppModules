@@ -3,15 +3,13 @@
 int	main(void)
 {
 	int 	N;
-	Zombie	*zom;
+	Zombie	*anasrat;
 
-	N = 5;
-	std::cout << "Hello" << std::endl;
-
-	zom = zombieHorde(N, "Alex");
+	N = 3;
+	anasrat = zombieHorde(N, "Alex");
 	for (int i = 0; i < N; i++)
-		zom->announce();
-	delete [] zom;
+		anasrat->announce();
+	delete [] anasrat;
 
 	return (0);
 }
