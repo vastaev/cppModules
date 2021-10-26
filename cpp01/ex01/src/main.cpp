@@ -8,7 +8,7 @@ int	main(void)
 	N = 3;
 	anasrat = zombieHorde(N, "Alex");
 	for (int i = 0; i < N; i++)
-		anasrat->announce();
+		anasrat[i].announce();
 	delete [] anasrat;
 
 	return (0);
