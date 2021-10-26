@@ -6,11 +6,11 @@
 #    By: cjoanne <cjoanne@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/25 12:33:01 by cjoanne           #+#    #+#              #
-#    Updated: 2021/10/26 06:14:16 by cjoanne          ###   ########.fr        #
+#    Updated: 2021/10/26 06:51:10 by cjoanne          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME	=	ptrandref
+NAME	=	replace
 
 SRC		=	main.cpp
 
@@ -26,6 +26,7 @@ $(NAME):	$(SRC)
 
 clean	:
 	rm -f $(OBJ)
+	rm -f *.replace
 
 fclean	:	clean
 	rm -f $(NAME)
