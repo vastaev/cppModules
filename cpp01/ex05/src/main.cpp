@@ -2,18 +2,18 @@
 
 int	main(void)
 {
-	Karen karen;
+	Karen Karen;
 
-	std::cout << "___________" << std::endl;
-	karen.complain("DEBUG");
-	std::cout << "___________" << std::endl;
-	karen.complain("INFO");
-	std::cout << "___________" << std::endl;
-	karen.complain("WARNING");
-	std::cout << "___________" << std::endl;
-	karen.complain("ERROR");
-	std::cout << "___________" << std::endl;
-	karen.complain("42");
-	std::cout << "___________" << std::endl;
+	std::cout << "-----------" << std::endl;
+	Karen.complain("DEBUG");
+	std::cout << "-----------" << std::endl;
+	Karen.complain("INFO");
+	std::cout << "-----------" << std::endl;
+	Karen.complain("WARNING");
+	std::cout << "-----------" << std::endl;
+	Karen.complain("ERROR");
+	std::cout << "-----------" << std::endl;
+	Karen.complain("42");
+	std::cout << "-----------" << std::endl;
 	return (0);
 }
