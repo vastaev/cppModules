@@ -22,14 +22,14 @@ Fixed &Fixed::operator=(const Fixed &other)
 {
 	std::cout << "Assignation operator called" << std::endl;
 	if (this != &other)
-		this->value_ = other.getRawBits();
-	return *this;
+		this->value_ = other.value_;
+	return (*this);
 }
 
 int Fixed::getRawBits( void ) const
 {
 	std::cout << "getRawBits member function called" << std::endl;
-	return this->value_;
+	return (this->value_);
 }
 
 void Fixed::setRawBits(int const raw)
