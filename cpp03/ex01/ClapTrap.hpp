@@ -2,6 +2,7 @@
 #define _CLAPTRAP_HPP_
 
 #include <iostream>
+#include <iomanip>
 #include <string>
 
 class ClapTrap
@@ -16,7 +17,7 @@ class ClapTrap
 			void attack(std::string const & target);
 			void takeDamage(unsigned int amount);
 			void beRepaired(unsigned int amount);
-	private:
+	protected:
 			std::string	name_;
 			int			health_;
 			int			energy_;
