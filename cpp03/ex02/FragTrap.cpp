@@ -40,6 +40,12 @@ FragTrap::~FragTrap()
 	std::cout << "Destructor of FragTrap " << name_ << std::endl;
 }
 
+void FragTrap::attack(std::string const &target)
+{
+	std::cout << "FragTrap " << name_ << " attacking "
+	<< target << " and causing a lot of damage (" << damage_ << ")" << std::endl;
+}
+
 void FragTrap::highFivesGuys(void)
 {
 	std::cout << "FragTrap " << name_ << " requesting high five!" << std::endl;
