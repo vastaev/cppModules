@@ -3,37 +3,62 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: nephilister <nephilister@student.42.fr>    +#+  +:+       +#+         #
+#    By: cjoanne <cjoanne@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2021/10/25 12:33:01 by cjoanne           #+#    #+#              #
-#    Updated: 2021/11/14 04:58:42 by nephilister      ###   ########.fr        #
+#    Created: 2021/10/24 06:53:13 by cjoanne           #+#    #+#              #
+#    Updated: 2021/11/14 13:51:06 by cjoanne          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME	=	a.out
+NAME	=	ex00
 
-SRC		=	main.cpp Animal.cpp Dog.cpp Cat.cpp WrongAnimal.cpp WrongCat.cpp
+SRC_LIST	=	main.cpp Animal.cpp Dog.cpp Cat.cpp WrongAnimal.cpp WrongCat.cpp
+SRC_DIR		=	src/
+SRC			=	$(addprefix $(SRC_DIR), $(SRC_LIST))
 
-HEADER	=	Animal.hpp Dog.hpp Cat.hpp Libs.hpp WrongCat.hpp WrongAnimal.hpp
+OBJ_LIST	=	$(SRC_LIST:.cpp=.o)
+OBJ_DIR		=	.obj/
+OBJ			=	$(addprefix $(OBJ_DIR), $(OBJ_LIST))
 
 CXX		=	c++
-
 FLAGS	=	-Wall -Wextra -Werror -std=c++98 -Wc++98-compat-pedantic
 
-OBJ		=	$(patsubst %.cpp, %.o, $(SRC))
+INCLUDES	=	-I $(HEADERS_DIR)
 
-all		:	$(NAME)
+HEADERS_DIR		=	./include/
+HEADERS_LIST	=	Animal.hpp Dog.hpp Cat.hpp Libs.hpp WrongCat.hpp WrongAnimal.hpp
+HEADERS 		=	$(addprefix $(HEADERS_DIR), $(HEADERS_LIST))
 
-$(NAME):	$(SRC) $(HEADER)
-	$(CXX) $(FLAGS) -c $(SRC)
-	$(CXX) $(FLAGS) $(OBJ) -o $(NAME)
+RM	=	rm -rf
 
-clean	:
-	rm -f $(OBJ)
+# COLORS
+GREEN = \033[0;32m
+BLUE= \033[0;34m
+RED = \033[0;31m
+RESET = \033[0m
 
-fclean	:	clean
-	rm -f $(NAME)
+all : $(NAME)
 
-re		:	fclean all
+$(NAME) : $(OBJ_DIR) $(OBJ) $(HEADERS)
+	@$(CXX) $(INCLUDES) $(OBJ) -o $(NAME)
+	@echo "$(NAME): $(BLUE)object files were created$(RESET)"
+	@echo "$(NAME): $(GREEN)$(NAME) was created$(RESET)"
 
-.PHONY	:	all clean fclean r
+$(OBJ_DIR)%.o : $(SRC_DIR)%.cpp
+	@$(CXX) $(FLAGS) $(INCLUDES) -c $< -o $@
+	
+$(OBJ_DIR) :
+	@mkdir -p $(OBJ_DIR)
+	@echo "$(NAME): $(BLUE)creating $(NAME)$(RESET)"
+
+clean :
+	@$(RM) $(OBJ_DIR)
+	@echo "$(NAME): $(RED)object files were deleted$(RESET)"
+
+fclean : clean
+	@$(RM) $(NAME)
+	@echo "$(NAME): $(RED)$(NAME) was deleted$(RESET)"
+
+re : fclean all
+
+.PHONY : all clean fclean re
