@@ -4,7 +4,7 @@
 
 int main()
 {
-	// Animal w();
+	// Animal test;
 	std::string test;
 	std::cout << "---------------" << std::endl;
 	std::cout << "--Main test" << std::endl;

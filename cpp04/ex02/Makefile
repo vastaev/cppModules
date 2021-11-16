@@ -6,11 +6,11 @@
 #    By: cjoanne <cjoanne@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/24 06:53:13 by cjoanne           #+#    #+#              #
-#    Updated: 2021/11/14 15:12:06 by cjoanne          ###   ########.fr        #
+#    Updated: 2021/11/16 21:22:50 by cjoanne          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME	=	ex01
+NAME	=	ex02
 
 SRC_LIST	=	main.cpp Animal.cpp Dog.cpp Cat.cpp Brain.cpp
 SRC_DIR		=	src/
