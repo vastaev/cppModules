@@ -8,6 +8,23 @@ MateriaSource::~MateriaSource()
 		delete storage_[i];
 }
 
+MateriaSource::MateriaSource(MateriaSource const &other): currentNumber_(other.currentNumber_)
+{
+	for (int i = 0; i < 4; i++)
+		storage_[i] = other.storage_[i];
+}
+
+MateriaSource &MateriaSource::operator=(MateriaSource const &other)
+{
+	if (this != &other)
+	{
+		currentNumber_ = other.currentNumber_;
+		for (int i = 0; i < 4; i++)
+			storage_[i] = other.storage_[i];
+	}
+	return (*this);
+}
+
 void MateriaSource::learnMateria(AMateria* materia)
 {
 	if (currentNumber_ == 4)

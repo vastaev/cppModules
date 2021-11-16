@@ -8,8 +8,12 @@ class MateriaSource: public IMateriaSource
 	public:
 		MateriaSource();
 		~MateriaSource();
-		void learnMateria(AMateria* materia);
-		AMateria* createMateria(std::string const & type);
+		MateriaSource(MateriaSource const &other);
+
+		MateriaSource &operator=(MateriaSource const &other);
+
+		void 		learnMateria(AMateria* materia);
+		AMateria*	createMateria(std::string const & type);
 	private:
 		AMateria	*storage_[4];
 		int			currentNumber_;

@@ -1,4 +1,6 @@
 #include "Character.hpp"
+#include "Ice.hpp"
+#include "Cure.hpp"
 
 Character::Character(std::string name): name_(name) {}
 
@@ -6,16 +8,28 @@ Character::~Character() {}
 
 Character::Character(Character const &other): name_(other.name_)
 {
+		std::cout << "B" << std::endl; 
+
 	*this = other;
 }
 
 Character &Character::operator=(Character const &other)
 {
+	std::cout << "A" << std::endl; 
 	if (this != &other)
 	{
 		name_ = other.name_;
 		for (int i = 0; i < 4; i++)
-			slots_[i] = other.slots_[i];
+		{
+			if (slots_[i])
+			{
+				std::string type = other.slots_[i]->getType();
+				if (type == "ice")
+					slots_[i] = new Ice();
+				else
+					slots_[i] = new Cure();
+			}
+		}
 	}
 	return (*this);
 }

@@ -6,6 +6,13 @@ Ice::~Ice() {}
 
 Ice::Ice(Ice const &other): AMateria(other.type_) {}
 
+Ice &Ice::operator=(Ice const &other)
+{
+	if (this != &other)
+		this->type_ = other.type_;
+	return (*this);
+}
+
 AMateria *Ice::clone() const
 {
 	AMateria *clone = new Ice(*this);
