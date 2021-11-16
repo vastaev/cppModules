@@ -2,26 +2,40 @@
 #include "Ice.hpp"
 #include "Cure.hpp"
 
-Character::Character(std::string name): name_(name) {}
+Character::Character(std::string name): name_(name) 
+{
+	for (int i = 0; i < 4; i++)
+		slots_[i] = 0;
+}
 
 Character::~Character() {}
 
-Character::Character(Character const &other): name_(other.name_)
+Character::Character(Character const &other)
 {
 		std::cout << "B" << std::endl; 
 
-	*this = other;
+		name_ = other.name_;
+		for (int i = 0; i < 4; i++)
+		{
+			if (other.slots_[i])
+			{
+				std::string type = other.slots_[i]->getType();
+				if (type == "ice")
+					slots_[i] = new Ice();
+				else
+					slots_[i] = new Cure();
+			}
+		}
 }
 
 Character &Character::operator=(Character const &other)
 {
-	std::cout << "A" << std::endl; 
 	if (this != &other)
 	{
 		name_ = other.name_;
 		for (int i = 0; i < 4; i++)
 		{
-			if (slots_[i])
+			if (other.slots_[i])
 			{
 				std::string type = other.slots_[i]->getType();
 				if (type == "ice")

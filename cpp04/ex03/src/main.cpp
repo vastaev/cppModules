@@ -1,4 +1,4 @@
-#include "/Users/cjoanne/Desktop/projects/cppmod/cpp04/ex03/include/MateriaSource.hpp"
+#include "MateriaSource.hpp"
 #include "AMateria.hpp"
 #include "Ice.hpp"
 #include "Cure.hpp"
@@ -53,15 +53,32 @@ int main()
 		std::cout << "---------------" << std::endl;
 
 
+		Character *orig = new Character("Billy");
 		tmp = src->createMateria("ice");
-		me->equip(tmp);
+		orig->equip(tmp);
 		tmp = src->createMateria("cure");
-		me->equip(tmp);
-		Character copy = me;
-		copy.use(0, *me);
-		copy.use(1, *me);
-		me->use(0, *bob);
-		me->use(1, *bob);
+		orig->equip(tmp);
+		Character *copy = new Character("gay");
+		*copy = *orig;
+		std::cout << "Copy name: " << copy->getName() << "   " << std::endl
+		<< "Original name: " << orig->getName() << std::endl;
+		orig->getName();
+		copy->use(0, *me);
+		copy->use(1, *me);
+		orig->use(0, *bob);
+		orig->use(1, *bob);
+
+		std::cout << std::endl;
+		Character copy2 = *orig;
+		tmp = src->createMateria("ice");
+		orig->equip(tmp);
+		tmp = src->createMateria("cure");
+		orig->equip(tmp);
+		copy2.use(0, *me);
+		copy2.use(1, *me);
+		orig->use(0, *bob);
+		orig->use(1, *bob);
+
 
 		delete bob;
 		delete me;
