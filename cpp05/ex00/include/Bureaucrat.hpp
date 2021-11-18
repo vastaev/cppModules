@@ -4,10 +4,16 @@
 #include <string>
 #include <iostream>
 
+# define DEFAULT	"\033[0m"
+# define RED		"\033[31m"
+# define GREEN		"\033[32m"
+# define YELLOW		"\033[33m"
+# define BLUE		"\033[34m"
+
 class Bureaucrat
 {
 	public:
-		Bureaucrat(std::string name, int grade);
+		Bureaucrat(std::string const name, int grade);
 		~Bureaucrat();
 		Bureaucrat(Bureaucrat const &other);
 
@@ -15,6 +21,8 @@ class Bureaucrat
 
 		std::string	const	&getName() const;
 		int					getGrade() const;
+		void				incrementGrade();
+		void				decrementGrade();
 
 		class GradeTooHighException: public std::exception
 		{
@@ -27,8 +35,8 @@ class Bureaucrat
 				GradeTooLowException();
 		};
 	private:
-		std::string	name_;
-		int			grade_;
+		std::string const 	name_;
+		int					grade_;
 };
 
 std::ostream &operator<<(std::ostream &out, const Bureaucrat &bur);
