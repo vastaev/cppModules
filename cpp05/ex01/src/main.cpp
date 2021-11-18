@@ -34,7 +34,7 @@ void	test(std::string name, int grade, std::string testName)
 	}
 	catch(const std::exception& e)
 	{
-		std::cout << RED << "Something bad happened" << DEFAULT << std::endl;
+		std::cout << "Something bad happened" << std::endl;
 	}
 	std::cout << std::endl;
 }
