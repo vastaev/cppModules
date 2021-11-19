@@ -9,9 +9,9 @@ Form::Form(std::string const name, int gradeToSign, int gradeToExecute):
 		throw GradeTooHighException(1);
 	else if (gradeToSign_ > 150)
 		throw GradeTooLowException(1);
-	if (gradeToSign_ < 1)
+	if (gradeToExecute_ < 1)
 		throw GradeTooHighException(0);
-	else if (gradeToSign_ > 150)
+	else if (gradeToExecute_ > 150)
 		throw GradeTooLowException(0);
 }
 
@@ -37,8 +37,8 @@ void Form::beSigned(Bureaucrat const &bur)
 	if (bur.getGrade() <= gradeToSign_)
 	{
 		isSigned_ = true;
-		std::cout << "Form was successfuly signed by bureaucrat" << bur.getName() 
-		<< std::endl;
+		std::cout << "Form \"" << this->getName() << "\" was successfuly signed by bureaucrat " 
+		<< bur.getName() << std::endl;
 	}
 	else
 		throw Form::GradeTooLowException(1);
@@ -62,11 +62,6 @@ int Form::getGradeToSign() const
 int Form::getGradeToExecute() const
 {
 	return (gradeToExecute_);
-}
-
-void Form::makeFormSigned()
-{
-	isSigned_ = true;
 }
 
 Form::GradeTooHighException::GradeTooHighException(bool which)
