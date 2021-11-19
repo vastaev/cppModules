@@ -3,6 +3,7 @@
 
 #include <string>
 #include <iostream>
+#include "Form.hpp"
 
 # define DEFAULT	"\033[0m"
 # define RED		"\033[31m"
@@ -24,6 +25,7 @@ class Bureaucrat
 		int					getGrade() const;
 		void				incrementGrade();
 		void				decrementGrade();
+		void				signForm(Form &form);
 
 		class GradeTooHighException: public std::exception
 		{

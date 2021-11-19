@@ -17,19 +17,8 @@ void	test(std::string name, int grade, std::string testName)
 	try
 	{
 		print_green("Bureaucrat creating");
-		Bureaucrat rat = Bureaucrat(name, grade);
-		if (grade != 150)
-		{
-			std::cout << rat << std::endl;
-			print_green("Incrementing grade");
-			rat.incrementGrade();
-		}
-		if (grade != 1)
-		{
-			std::cout << rat << std::endl;
-			print_green("Decrementing grade");
-			rat.decrementGrade();
-		}
+		Bureaucrat rat = Bureaucrat("Van", 50);
+		Form form = Form(name, grade, 21);
 		std::cout << rat << std::endl;
 	}
 	catch(const std::exception& e)
@@ -42,8 +31,4 @@ void	test(std::string name, int grade, std::string testName)
 int main()
 {
 	test("№1", 50, "Normal test");
-	test("№2", 151, "Too Low Grade test");
-	test("№3", 0, "Too High Grade test");
-	test("№4", 1, "Increment throw test");
-	test("№5", 150, "Decrement throw test");
 }

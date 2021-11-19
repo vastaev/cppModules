@@ -19,6 +19,7 @@ class Form
 		bool				getIsSigned() const;
 		int					getGradeToSign() const;
 		int					getGradeToExecute() const;
+		void				makeFormSigned();
 
 		class GradeTooHighException: public std::exception
 		{

@@ -64,6 +64,11 @@ int Form::getGradeToExecute() const
 	return (gradeToExecute_);
 }
 
+void Form::makeFormSigned()
+{
+	isSigned_ = true;
+}
+
 Form::GradeTooHighException::GradeTooHighException(bool which)
 {
 	if (which == 1)
