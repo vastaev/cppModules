@@ -25,10 +25,10 @@ void	test(std::string name, int gToSign, int gToExecute, std::string testName)
 void	test_beSigned(std::string burName, int burGrade, std::string testName)
 {
 	print_testName(testName);
-	Bureaucrat n1 = Bureaucrat(burName, burGrade);
-	Form f1 = Form("Gym buliding", 42, 21);
 	try
 	{
+		Bureaucrat n1 = Bureaucrat(burName, burGrade);
+		Form f1 = Form("Gym buliding", 42, 21);
 		print_green("Calling beSigned function");
 		f1.beSigned(n1);	
 	}
