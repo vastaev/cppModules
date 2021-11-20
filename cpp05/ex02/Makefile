@@ -6,7 +6,7 @@
 #    By: cjoanne <cjoanne@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/24 06:53:13 by cjoanne           #+#    #+#              #
-#    Updated: 2021/11/19 21:29:26 by cjoanne          ###   ########.fr        #
+#    Updated: 2021/11/20 19:34:06 by cjoanne          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -60,6 +60,7 @@ clean :
 fclean : clean
 	@$(RM) $(NAME)
 	@echo "$(NAME): $(RED)$(NAME) was deleted$(RESET)"
+	@$(RM) *_shrubbery
 
 re : fclean all
 

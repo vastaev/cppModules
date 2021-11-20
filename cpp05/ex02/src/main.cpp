@@ -1,26 +1,50 @@
-#include <iostream>
-#include <iomanip>
 #include "Bureaucrat.hpp"
 #include "Form.hpp"
 #include "ShrubberyCreationForm.hpp"
 #include "RobotomyRequestForm.hpp"
+#include "PresidentialPardonForm.hpp"
 
+void	print_green(std::string msg);
+void	print_testName(std::string testName);
+
+void	test(int burGrade, std::string testName)
+{
+	static int num;
+	print_testName(testName);
+	try
+	{
+		num++;
+		Bureaucrat b1 = Bureaucrat("№" + std::to_string(num), burGrade);
+		RobotomyRequestForm n1 = RobotomyRequestForm("Van");
+		print_green("Form Signing");
+		n1.beSigned(b1);
+		print_green("Form executing");
+		n1.execute(b1);
+	}
+	catch(const std::exception& e)
+	{
+		std::cout << RED << "Something bad happened" << DEFAULT << std::endl;
+	}
+	std::cout << std::endl;
+}
 
 int main()
 {
-	// Bureaucrat b1 = Bureaucrat("Billy", 150);
-	// ShrubberyCreationForm n1 = ShrubberyCreationForm("home");
-	// n1.execute(b1);
+	test(15, "Valid form creation");
+	test(73, "Bur can't sign test");
+	test(72, "Bur can't execute test");
+}
 
-	// Bureaucrat b2 = Bureaucrat("Van", 1);
-	// ShrubberyCreationForm n1 = ShrubberyCreationForm("home");
-	// n1.execute(b1);
+void	print_testName(std::string testName)
+{
+	std::cout << "~~~~~~~~~~~~~~~" << std::endl;
+	std::cout << YELLOW << "  " << testName << DEFAULT << std::endl;
+	std::cout << "~~~~~~~~~~~~~~~"<< std::endl;
+}
 
-	Bureaucrat b3 = Bureaucrat("3", 1);
-	RobotomyRequestForm n3 = RobotomyRequestForm("Van");
-	n3.beSigned(b3);
-	Bureaucrat b4 = Bureaucrat("3", 145);
-	n3.execute(b4);
-
-
+void	print_green(std::string msg)
+{
+ 	std::cout << "---------------" << std::endl;
+	std::cout << GREEN << msg << DEFAULT << std::endl;
+	std::cout << "---------------" << std::endl;
 }

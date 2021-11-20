@@ -18,7 +18,7 @@ ShrubberyCreationForm & ShrubberyCreationForm::operator=(ShrubberyCreationForm c
 void ShrubberyCreationForm::execute(Bureaucrat const & executor) const
 {
 	checkSignAndGrade(executor);
-	std::cout << "Executing " << target_ << std::endl;
+	std::cout << "Executing ShrubberyCreate form" << target_ << std::endl;
 	std::ofstream file;
 
 	file.open(target_ + "_shrubbery");
@@ -40,4 +40,5 @@ void ShrubberyCreationForm::execute(Bureaucrat const & executor) const
 		file << "░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░" << std::endl;
 		file.close();
 	}
+	std::cout << "Executor: " << executor.getName() << std::endl;
 }

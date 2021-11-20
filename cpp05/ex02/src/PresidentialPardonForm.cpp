@@ -18,5 +18,6 @@ PresidentialPardonForm & PresidentialPardonForm::operator=(PresidentialPardonFor
 void PresidentialPardonForm::execute(Bureaucrat const & executor) const
 {
 	checkSignAndGrade(executor);
-	std::cout << target_ << " has been pardoned by Zafod Beeblebrox" << std::endl;
+	std::cout << target_ << " has been pardoned by Zafod Beeblebrox." << std::endl
+	<< "Executor: " << executor.getName() << std::endl;
 }
