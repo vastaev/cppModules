@@ -17,9 +17,15 @@ void	test(int burGrade, std::string testName)
 		Bureaucrat b1 = Bureaucrat("№" + std::to_string(num), burGrade);
 		RobotomyRequestForm n1 = RobotomyRequestForm("Van");
 		print_green("Form Signing");
-		n1.beSigned(b1);
+		if (num < 4)
+			n1.beSigned(b1);
+		if (num > 3)
+			b1.signForm(n1);
 		print_green("Form executing");
-		n1.execute(b1);
+		if (num < 4)
+			n1.execute(b1);
+		if (num > 3)
+			b1.executeForm(n1);
 	}
 	catch(const std::exception& e)
 	{
@@ -30,7 +36,11 @@ void	test(int burGrade, std::string testName)
 
 int main()
 {
-	test(15, "Valid form creation");
+	test(15, "Executing test");
+	test(73, "Bur can't sign test");
+	test(72, "Bur can't execute test");
+	print_testName("Executing by bur function");
+	test(15, "Executing test");
 	test(73, "Bur can't sign test");
 	test(72, "Bur can't execute test");
 }
