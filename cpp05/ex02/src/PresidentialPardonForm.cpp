@@ -2,7 +2,7 @@
 
 PresidentialPardonForm::PresidentialPardonForm(): Form() {}
 
-PresidentialPardonForm::PresidentialPardonForm(std::string target): Form("RobotomyRequest", 72, 45), target_(target) {}
+PresidentialPardonForm::PresidentialPardonForm(std::string target): Form("PresidentialPardon", 25, 5), target_(target) {}
 
 PresidentialPardonForm::~PresidentialPardonForm() {}
 
@@ -17,11 +17,6 @@ PresidentialPardonForm & PresidentialPardonForm::operator=(PresidentialPardonFor
 
 void PresidentialPardonForm::execute(Bureaucrat const & executor) const
 {
-	if (executor.getGrade() >= this->getGradeToExecute())
-	{
-		std::cout << RED << "Bureaucrat " << executor.getName() << 
-		" got too low grade to execute RobotomyRequest form" << DEFAULT << std::endl;
-		return ;
-	}
+	checkSignAndGrade(executor);
 	std::cout << target_ << " has been pardoned by Zafod Beeblebrox" << std::endl;
 }

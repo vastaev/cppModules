@@ -18,5 +18,9 @@ int main()
 
 	Bureaucrat b3 = Bureaucrat("3", 1);
 	RobotomyRequestForm n3 = RobotomyRequestForm("Van");
-	n3.execute(b3);
+	n3.beSigned(b3);
+	Bureaucrat b4 = Bureaucrat("3", 145);
+	n3.execute(b4);
+
+
 }

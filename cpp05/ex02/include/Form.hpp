@@ -23,7 +23,13 @@ class Form
 		int					getGradeToSign() const;
 		int					getGradeToExecute() const;
 		virtual void		execute(Bureaucrat const & executor) const = 0;
+		void				checkSignAndGrade(Bureaucrat const &bur) const;
 
+		class FormNotSignedException: public std::exception
+		{
+			public:
+				FormNotSignedException();
+		};
 		class GradeTooHighException: public std::exception
 		{
 			public:

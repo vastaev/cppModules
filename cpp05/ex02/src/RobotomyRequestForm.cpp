@@ -17,12 +17,7 @@ RobotomyRequestForm & RobotomyRequestForm::operator=(RobotomyRequestForm const &
 
 void RobotomyRequestForm::execute(Bureaucrat const & executor) const
 {
-	if (executor.getGrade() >= this->getGradeToExecute())
-	{
-		std::cout << RED << "Bureaucrat " << executor.getName() << 
-		" got too low grade to execute RobotomyRequest form" << DEFAULT << std::endl;
-		return ;
-	}
+	checkSignAndGrade(executor);
 	std::cout << target_ << " has been robotomized successfully 50% of the time by the bureaucrat " 
 	<< executor.getName() << std::endl;
 }

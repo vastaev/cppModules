@@ -17,12 +17,7 @@ ShrubberyCreationForm & ShrubberyCreationForm::operator=(ShrubberyCreationForm c
 
 void ShrubberyCreationForm::execute(Bureaucrat const & executor) const
 {
-	if (executor.getGrade() >= this->getGradeToExecute())
-	{
-		std::cout << RED << "Bureaucrat " << executor.getName() << 
-		" got too low grade to execute Shrubbery form" << DEFAULT << std::endl;
-		return ;
-	}
+	checkSignAndGrade(executor);
 	std::cout << "Executing " << target_ << std::endl;
 	std::ofstream file;
 
