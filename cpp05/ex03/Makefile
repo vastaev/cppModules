@@ -6,14 +6,14 @@
 #    By: cjoanne <cjoanne@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/24 06:53:13 by cjoanne           #+#    #+#              #
-#    Updated: 2021/11/20 22:52:13 by cjoanne          ###   ########.fr        #
+#    Updated: 2021/11/20 22:51:27 by cjoanne          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME	=	ex02
+NAME	=	ex03
 
 SRC_LIST	=	main.cpp Bureaucrat.cpp Form.cpp ShrubberyCreationForm.cpp\
-				RobotomyRequestForm.cpp PresidentialPardonForm.cpp
+				RobotomyRequestForm.cpp PresidentialPardonForm.cpp Intern.cpp
 SRC_DIR		=	src/
 SRC			=	$(addprefix $(SRC_DIR), $(SRC_LIST))
 
@@ -28,7 +28,7 @@ INCLUDES	=	-I $(HEADERS_DIR)
 
 HEADERS_DIR		=	./include/
 HEADERS_LIST	=	Bureaucrat.hpp Form.hpp ShrubberyCreationForm.hpp\
-					RobotomyRequestForm.hpp
+					RobotomyRequestForm.hpp Intern.hpp
 HEADERS 		=	$(addprefix $(HEADERS_DIR), $(HEADERS_LIST))
 
 RM	=	rm -rf

@@ -64,6 +64,19 @@ int Form::getGradeToExecute() const
 	return (gradeToExecute_);
 }
 
+void Form::checkSignAndGrade(Bureaucrat const &bur) const
+{
+	if (isSigned_ == false)
+		throw FormNotSignedException();
+	if (bur.getGrade() >= gradeToExecute_)
+		throw GradeTooLowException(0);
+}
+
+Form::FormNotSignedException::FormNotSignedException()
+{
+	std::cout << "FormNotSigned Exception" << std::endl;
+}
+
 Form::GradeTooHighException::GradeTooHighException(bool which)
 {
 	if (which == 1)
@@ -82,8 +95,8 @@ Form::GradeTooLowException::GradeTooLowException(bool which)
 
 std::ostream &operator<<(std::ostream &out, const Form &form)
 {
-	out << "Form info: "
-	<< std::endl << "Name: " << form.getName() << std::endl
+	out << "Form info: "<< std::endl 
+	<< "Name: " << form.getName() << std::endl
 	<< "Is signed: " << form.getIsSigned() << std::endl 
 	<< "Grade to Sign: " << form.getGradeToSign() << std::endl
 	<< "Grade to Execute: " << form.getGradeToExecute() << std::endl;
