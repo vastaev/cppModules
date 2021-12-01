@@ -32,36 +32,47 @@ void	toInt(long long num)
 	std::cout << out << std::endl;
 }
 
+void	precisionOne(std::string &fstr)
+{
+	std::size_t nulPos = fstr.find('.');
+	if (nulPos != std::string::npos)
+		fstr.erase(nulPos + 2, fstr.length() - nulPos);
+}
+
 void	toFloat(double fnum)
 {
 	std::cout << "float: ";
 	float out = static_cast<float>(fnum);
-	std::cout << out;
-	if (fnum == static_cast<int>(fnum))
-		std::cout << ".0";
-	std::cout << "f" << std::endl;
+	std::string fstr = std::to_string(out);
+	precisionOne(fstr);
+	std::cout << fstr << "f" << std::endl;
 }
 
 void	toDouble(double fnum)
 {
 	std::cout << "double: ";
-	std::cout << fnum;
-	if (fnum == static_cast<int>(fnum))
-		std::cout << ".0";
-	std::cout << std::endl;
+	std::string fstr = std::to_string(fnum);
+	precisionOne(fstr);
+	std::cout << fstr << std::endl;
 }
 
 void	validation(long long &num, double &fnum, std::string const &arg)
 {
-	if (arg != "0" && fnum == 0)
-	{
-		fnum = std::numeric_limits<double>::quiet_NaN();
-		num = 2147483648;
-	}
 	if (arg == "nan" || arg == "-inf" || arg == "+inf" || arg == "inf")
 	{
 		num = 2147483648;
 	}
+	else
+		for (int i = 0; arg[i] != '\0'; i++)
+		{
+			if (!isdigit(arg[i]) && arg[i] != 'e' && arg[i] != '+' && arg[i] != '-' && arg[i] != '.')
+			{
+				fnum = std::numeric_limits<double>::quiet_NaN();
+				num = 2147483648;
+			}
+		}
+	if (fnum > static_cast<int>(num + 1))
+		num = 2147483648;
 }
 
 int main(int argc, char **argv)
