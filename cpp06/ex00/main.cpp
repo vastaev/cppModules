@@ -32,28 +32,17 @@ void	toInt(long long num)
 	std::cout << out << std::endl;
 }
 
-void	precisionOne(std::string &fstr)
-{
-	std::size_t nulPos = fstr.find('.');
-	if (nulPos != std::string::npos)
-		fstr.erase(nulPos + 2, fstr.length() - nulPos);
-}
-
 void	toFloat(double fnum)
 {
 	std::cout << "float: ";
 	float out = static_cast<float>(fnum);
-	std::string fstr = std::to_string(out);
-	precisionOne(fstr);
-	std::cout << fstr << "f" << std::endl;
+	std::cout << std::fixed << out << "f" << std::endl;
 }
 
 void	toDouble(double fnum)
 {
 	std::cout << "double: ";
-	std::string fstr = std::to_string(fnum);
-	precisionOne(fstr);
-	std::cout << fstr << std::endl;
+	std::cout << std::fixed << fnum << std::endl;
 }
 
 void	validation(long long &num, double &fnum, std::string const &arg)
@@ -63,16 +52,23 @@ void	validation(long long &num, double &fnum, std::string const &arg)
 		num = 2147483648;
 	}
 	else
+	{
+		int	dots = 0;
 		for (int i = 0; arg[i] != '\0'; i++)
 		{
-			if (!isdigit(arg[i]) && arg[i] != 'e' && arg[i] != '+' && arg[i] != '-' && arg[i] != '.')
+			if (arg[i] == '.')
+				dots++;
+			if ((!isdigit(arg[i]) && arg[i] != 'e' && arg[i] != '+' && arg[i] != '-' && arg[i] != '.') || dots > 1)
 			{
 				fnum = std::numeric_limits<double>::quiet_NaN();
 				num = 2147483648;
+				return ;
 			}
 		}
+	}
 	if (fnum > static_cast<int>(num + 1))
 		num = 2147483648;
+
 }
 
 int main(int argc, char **argv)
@@ -90,6 +86,7 @@ int main(int argc, char **argv)
 	validation(num, fnum, arg);
 	toChar(num);
 	toInt(num);
+	std::cout.precision(1);
 	toFloat(fnum);
 	toDouble(fnum);
 	return (0);
