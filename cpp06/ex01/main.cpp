@@ -16,9 +16,8 @@ int main(void)
 	Data *ptr = new Data;
 	ptr->name_ = "Oleg";
 	uintptr_t n1 = serialize(ptr);
-	std::cout << n1 << std::endl;
+	std::cout << "n1 - integer: " << n1 << std::endl;
 	Data *n2 = deserialize(n1);
-	std::cout << "serialize: " <<  n1 << std::endl;
-	std::cout << "deserialize: " << n2 << std::endl;
-	std::cout << "contents n2: " << n2->name_ << std::endl;
+	std::cout << "content of ptr: " << ptr->name_ << std::endl;
+	std::cout << "content of n2: " << n2->name_ << std::endl;
 }
