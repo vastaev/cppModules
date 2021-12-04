@@ -4,25 +4,16 @@
 #include <iostream>
 
 template<typename Type>
-void iter(Type *array, int length, void (*f)(Type &a))
+void iter(Type *array, int length, void (*f)(Type const &a))
 {
 	for (int i = 0; i < length; i++)
 		f(array[i]);
 }
 
 template<typename Type>
-void	plusOne(Type &a)
+void	printElem(Type const &a)
 {
-	a++;
-}
-
-template<typename Type>
-void	printArray(Type *array, int length)
-{
-	int i = 0;
-	for (; i < length - 1; i++)
-		std::cout << array[i] << ", ";
-	std::cout << array[i] << std::endl;
+	std::cout << a << std::endl;
 }
 
 #endif
