@@ -1,8 +1,8 @@
-NAME	=	ex01
+NAME	=	ex02
 
 SRC		=	main.cpp
 
-HEADER 	=	iter.hpp
+HEADER 	=	Array.hpp
 
 FLAGS	=	-Wall -Wextra -Werror -std=c++98 -Wc++98-compat-pedantic
 
