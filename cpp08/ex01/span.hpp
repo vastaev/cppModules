@@ -12,7 +12,7 @@ class Span {
 
 		void	addNumber(unsigned int num);
 		int		shortestSpan();
-
+		int		longestSpan();
 	private:
 		std::multiset<int>	elems_;
 		unsigned int		size_;
@@ -20,12 +20,12 @@ class Span {
 	class TooManyElementsException: public std::exception
 	{
 		public:
-			TooManyElementsException(std::string const &msg);
+			TooManyElementsException();
 	};
 	class NoSpanToFindException: public std::exception
 	{
 		public:
-			NoSpanToFindException(std::string const &msg);
+			NoSpanToFindException();
 	};
 };
 
