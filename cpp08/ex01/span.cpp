@@ -4,11 +4,29 @@ Span::Span(): size_(0) {}
 
 Span::Span(unsigned int N): size_(N) {}
 
+Span::~Span() {}
+
 void Span::addNumber(unsigned int num)
 {
 	if (size_ == elems_.size())
 		throw TooManyElementsException();
 	this->elems_.insert(num);
+}
+
+template<typename It> 
+void	Span::addNumber(It begin, It end)
+{
+	elems_.insert(begin, end);
+	if (elems_.size() > size_)
+		throw TooManyElementsException();
+}
+
+void TemporaryFunction ()
+{
+    Span a(5);
+	std::vector<int>::iterator itr1;
+	std::vector<int>::iterator itr2;
+	a.addNumber(itr1, itr2);
 }
 
 int	Span::shortestSpan()

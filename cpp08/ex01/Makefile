@@ -1,6 +1,6 @@
 NAME	=	ex01
 
-SRC		=	main.cpp span.cpp
+SRC		=	span.cpp main.cpp 
 
 HEADER 	=	span.hpp
 

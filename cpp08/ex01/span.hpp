@@ -4,15 +4,21 @@
 #include <set>
 #include <iostream>
 #include <string>
+#include <vector>
+
+#define YELLOW		"\033[33m"
+#define DEFAULT		"\033[0m"
 
 class Span {
 	public:
 		Span();
 		Span(unsigned int N);
+		~Span();
 
-		void	addNumber(unsigned int num);
-		int		shortestSpan();
-		int		longestSpan();
+		void						addNumber(unsigned int num);
+		template<class Itr> void	addNumber(Itr begin, Itr end);
+		int							shortestSpan();
+		int							longestSpan();
 	private:
 		std::multiset<int>	elems_;
 		unsigned int		size_;
