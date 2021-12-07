@@ -14,6 +14,9 @@ class Span {
 		Span();
 		Span(unsigned int N);
 		~Span();
+		Span(const Span &other);
+
+		Span & operator=(const Span &other);
 
 		void						addNumber(unsigned int num);
 		template<class Itr> void	addNumber(Itr begin, Itr end);

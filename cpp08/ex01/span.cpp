@@ -6,6 +6,18 @@ Span::Span(unsigned int N): size_(N) {}
 
 Span::~Span() {}
 
+Span::Span(const Span &other): elems_(other.elems_), size_(other.size_) {}
+
+Span & Span::operator=(const Span &other)
+{
+	if (this != &other)
+	{
+		this->elems_ = other.elems_;
+		this->size_ = other.size_;
+	}
+	return (*this);
+}
+
 void Span::addNumber(unsigned int num)
 {
 	if (size_ == elems_.size())
