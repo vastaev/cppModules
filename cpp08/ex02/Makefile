@@ -1,10 +1,10 @@
-NAME	=	ex01
+NAME	=	ex02
 
-SRC		=	span.cpp main.cpp 
+SRC		=	main.cpp mutantstack.cpp 
 
-HEADER 	=	span.hpp
+HEADER 	=	mutantstack.hpp
 
-FLAGS	=	-Wall -Wextra -Werror -std=c++98 -Wc++98-compat-pedantic
+FLAGS	=	-g -Wall -Wextra -Werror -std=c++98 -Wc++98-compat-pedantic
 
 OBJ		=	$(patsubst %.cpp, %.o, $(SRC))
 
@@ -22,4 +22,4 @@ fclean	:	clean
 
 re		:	fclean all
 
-.PHONY	:	all clean fclean r
+.PHONY	:	all clean fclean re

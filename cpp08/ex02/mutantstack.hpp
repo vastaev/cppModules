@@ -4,15 +4,19 @@
 #include <stack>
 
 template<typename T>
-class MutantStack: std::stack<T>
+class MutantStack: public std::stack<T>
 {
 	public:
-		MutantStack<T>();
-		virtual ~MutantStack<T>();
-		MutantStack<T>(const MutantStack<T> &other);
+		MutantStack();
+		virtual ~MutantStack();
+		MutantStack(const MutantStack & other);
 
-		MutantStack<T> & operator=(const MutantStack<T> &other);
-		typename std::stack<T>::container_type::iterator it;
+		MutantStack & operator=(const MutantStack & other);
+
+		typedef typename std::stack<T>::container_type::iterator iterator;
+
+		iterator begin();
+		iterator end();
 };
 
 #endif
